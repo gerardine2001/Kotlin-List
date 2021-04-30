@@ -1,8 +1,13 @@
 fun main() {
     println(getString(listOf("Promise","Marie","Gerardine","Dina","Belyse","Divine","Ketty","Diana","John","Andrew","Jelly")))
-    println(peopleListAvarage(listOf(1.90,1.68,1.73,1.53)))
 
     getPerson()
+    var personHeight=averagetotal(listOf(1.90,1.68,1.73,1.53))
+    println(personHeight.average)
+    println(personHeight.total)
+
+
+
     getPeople()
     var  car= listOf(
         Car("RAE201F",400),
@@ -21,10 +26,12 @@ fun getString(people:List<String>):List<String>{
       }
     return a
 }
-fun peopleListAvarage(hieghts:List<Double>):Pair<Double,Double> {
-    var sum=hieghts.sum()
-    var average=hieghts.average()
-    return Pair(sum,average)
+data class PeopleListAvarage(var average:Double,var total:Double)
+fun averagetotal(hieght:List<Double>):PeopleListAvarage{
+    var sum=hieght.sum()
+    var average=hieght.average()
+    var averagesum=PeopleListAvarage(average,sum)
+    return averagesum
 }
 
 
